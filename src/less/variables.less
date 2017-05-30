@@ -1,0 +1,198 @@
+
+// Базовые цвета
+
+@gray-darkest:                #1c1c1c;
+@gray-darker:                 #3a3a3a;
+@gray-dark:                   #5f5f5f;
+@gray:                        #808080;
+@gray-light:                  #b1b1b1;
+@gray-lighter:                #eceeef;
+@gray-lightest:               #f7f7f9;
+
+@purple:                      #635294;
+@red-dark:                    #A25F5A;
+@brown-light:                 #A2975A;
+@blue-sea:                    #528094;
+
+@color-main:                  #0275d8;
+@color-success:               #5cb85c;
+@color-danger:                #d9534f;
+
+@white:                       #ffffff;
+
+
+
+// Семантические цвета
+
+@text-color:                  @white;
+@text-color--muted:           @gray;
+@body-bg: @white;
+
+@link-color:                  @color-main;
+@link-color--hover:           darken(@color-main, 15%);
+
+@border-color:                @gray-light;
+
+
+
+// Базовая типографика (<=479: 1 rem = 8px, >=480: 1rem = 10px)
+// Для лёгкого пересчёта: http://pxtoem.com/
+
+@font-size:                   1.6rem;
+@font-size--h1:               2.25em;  // 3.6rem;
+@font-size--h2:               1.875em; // 3rem;
+@font-size--h3:               1.5em;   // 2.4rem;
+@font-size--h4:               1.25em;  // 2.0rem;
+@font-size--h5:               1em;     // 1.6rem
+@font-size--h6:               1em;     // 1.6rem
+@font-size--small:            0.75em;
+@font-size--small-percent:    75%;
+
+@line-height:                 1.375em;
+
+@font-family:                 -apple-system, BlinkMacSystemFont, 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+@font-family--serif:          Georgia, 'Times New Roman', Times, serif;
+@font-family--monospace:      Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+@font-family--headings:       @font-family;
+@font-family--IsadoraBold:       'IsadoraBold',Arial, sans-serif;
+@font-family--NautilusPompilius:       'NautilusPompilius',Arial, sans-serif;
+@font-family--RobotoCondensedBold:       'RobotoCondensedBold',Arial, sans-serif;
+@font-family--RalewayBlack:       'RalewayBlack',Arial, sans-serif;
+@font-family--RalewayBold:       'RalewayBold',Arial, sans-serif;
+@font-family--RalewayExtraBold:       'RalewayExtraBold',Arial, sans-serif;
+@font-family--RalewayExtraLight:       'RalewayExtraLight',Arial, sans-serif;
+@font-family--RalewayLight:       'RalewayLight',Arial, sans-serif;
+@font-family--RalewayMedium:       'RalewayMedium',Arial, sans-serif;
+@font-family--RalewayRegular:       'RalewayRegular',Arial, sans-serif;
+@font-family--RalewaySemiBold:       'RalewaySemiBold',Arial, sans-serif;
+@font-family--RalewayThin:       'RalewayThin',Arial, sans-serif;
+@font-family--Fontello: 		'Fontello';
+
+
+// Модульная сетка
+
+@grid-columns:              12;
+@grid-gutter-width:         30;
+
+
+
+// Ширины
+
+// Small screen / tablet
+@container-tablet:             (720px + @grid-gutter-width);
+//** For `@screen-sm-min` and up.
+@container-sm:                 @container-tablet;
+
+// Medium screen / desktop
+@container-desktop:            (940px + @grid-gutter-width);
+//** For `@screen-md-min` and up.
+@container-md:                 @container-desktop;
+
+// Large screen / wide desktop
+@container-large-desktop:      (1170px + @grid-gutter-width); // Размер основного контейнера + паддинги
+//** For `@screen-lg-min` and up.
+@container-lg:                 @container-large-desktop;
+
+@body-min-width:   320px;
+
+// Extra small screen / phone
+//** Deprecated `@screen-xs` as of v3.0.1
+@screen-xs:                  480px;
+//** Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min:              @screen-xs;
+//** Deprecated `@screen-phone` as of v3.0.1
+@screen-phone:               @screen-xs-min;
+
+// Small screen / tablet
+//** Deprecated `@screen-sm` as of v3.0.1
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+//** Deprecated `@screen-tablet` as of v3.0.1
+@screen-tablet:              @screen-sm-min;
+
+// Medium screen / desktop
+//** Deprecated `@screen-md` as of v3.0.1
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+//** Deprecated `@screen-desktop` as of v3.0.1
+@screen-desktop:             @screen-md-min;
+
+// Large screen / wide desktop
+//** Deprecated `@screen-lg` as of v3.0.1
+@screen-lg:                  1200px;
+@screen-lg-min:              @screen-lg;
+//** Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-lg-desktop:          @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:     @screen-sm-min;
+//** Point at which the navbar begins collapsing.
+@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
+
+
+// Z-index
+
+@z-index-dropdown:            10;
+
+// Пути
+@icon-font-path:          '../fonts/';
+@image-path:               '../img/';
+@sprites-path:              '../img/sprites/';
+
+//** File name for all font files.
+@icon-font-name:          'glyphicons-halflings-regular';
+//** Element ID within SVG icon file.
+@icon-font-svg-id:        'glyphicons_halflingsregular';
+
+
+// Формы, кнопки
+
+@field-padding-top:           0.313em;
+@field-padding-bottom:        0.313em;
+@field-padding-horizontal:    0.438em;
+
+
+
+// Разное
+
+@border-radius:               0.3rem;
+@opacity:                     0.7;
+@transition-time:             0.3s;
+@shadow:                      0 4px 2px -2px rgba(0, 0, 0, 0.3);
+
+@background-color         : #fafafa;
+@text-color               : @white;
+@additional-text-color    : rgba(0,0,0,0.67);
+@secondary-text-color     : rgba(0,0,0,0.54);
+@hint-text-color          : rgba(0,0,0,0.26);
+@divider-color            : rgba(0,0,0,0.12);
+@primary-color            : #00BCD4;
+@accent-color             : #FF4081;
+@contrast-text-color      : rgba(255,255,255,0.9);
+@card-background-color    : #fff;
+
+@xs-min : 480px;
+@sm-min : 768px;
+@md-min : 992px;
+@lg-min : 1200px;
+
+@xs-max : (@sm-min - 1);
+@sm-max : (@md-min - 1);
+@md-max : (@lg-min - 1);
+
+@phone   : ~"only screen and (max-width: @{xs-max})";
+@tablet  : ~"only screen and (min-width: @{sm-min}) and (max-width: @{sm-max})";
+@desktop : ~"only screen and (min-width: @{md-min}) and (max-width: @{md-max})";
+@large   : ~"only screen and (min-width: @{lg-min})";

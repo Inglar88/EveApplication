@@ -1,0 +1,173 @@
+﻿
+.wrapper (@wrapper-width:@wrapper) {
+    display: block;
+    max-width: @wrapper-width;
+    margin-left: auto;
+    margin-right: auto;
+}
+.inner (@inner-width:@inner) {
+    display: block;
+    max-width: @inner-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: @inner-gutter-l;
+    padding-right: @inner-gutter-r;
+}
+
+.font-par(@par1;@par2;@par3;@par4;@par5;@par6:normal) {
+    font-family:@par1;
+    font-size:@par2;
+    line-height:@par3;
+    font-weight:@par4;
+    color:@par5;
+    letter-spacing:((@par2*@par6) / 1000)*1px;
+}
+.text-par (@par1;@par2;@par3) {
+    text-decoration:@par1;
+    text-align:@par2;
+    font-style:@par3;
+}
+.tracking (@font-size;@track) {
+    letter-spacing:((@font-size*@track) / 1000)*1px;
+}
+
+.perc(@selector, @child, @parent) {
+	@{selector}: percentage(@child/@parent);
+}
+
+
+.pxtoem(@selector, @amt) when (isem(@amt)) {
+    @{selector}: @amt;
+}
+
+.pxtoem(@selector, @amt, @emInPx: @font-size-em) when (ispixel(@amt)) {
+    @{selector}: unit((@amt / @font-size-em), em);
+}
+
+.placeholder(@color: @input-color-placeholder) {
+  // Firefox
+  &::-moz-placeholder {
+    color: @color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  &:-ms-input-placeholder { color: @color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+}
+
+.section-font-px (main;@var:3px) {
+    font-size: @font-size-em - @var;
+    @media only screen and (min-width : @screen-sm-min) {
+        font-size: @font-size-em - (@var - 1px);
+    }
+    @media only screen and (min-width : @screen-md-min) {
+        font-size: @font-size-em;
+    }
+}
+
+.section-padding(middle;@top;@bottom) {
+    padding-top: (@top / 100) * 50%;
+    padding-bottom: (@bottom / 100) * 50%;
+    @media only screen and (min-width : @screen-sm-min) {
+        padding-top: (@top / 100) * 20%;
+		padding-bottom: (@bottom / 100) * 20%;
+    }
+     @media only screen and (min-width : @screen-md-min) {
+        padding-top: @top;
+        padding-bottom: @bottom;
+     }
+}
+
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//* Centering
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.absolute-center-vetical {
+  position: absolute;
+  top:50%;
+  transform:translateY(-50%);
+}
+.absolute-center-horizontal {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//** Resets
+.row-m0 {
+  .row-ml0;
+  .row-mr0;
+}
+.row-ml0 {
+    margin-left: 0;
+}
+.row-mr0 {
+    margin-right: 0;
+}
+.col-p0 {
+  .col-pr0;
+  .col-pl0;
+}
+.col-pr0 {
+  padding-right: 0;
+}
+.col-pl0 {
+  padding-left: 0;
+}
+.ul-reset {
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+.h-reset {
+    margin:0;
+}
+.p-reset {
+    margin:0;
+}
+.btn-reset {
+    padding:0;
+    border:none;
+    outline: none;
+    background: none;
+}
+.input-reset {
+    padding:0;
+    margin:0;
+    outline: none;
+    border:none;
+    background: none;
+}
+.select-reset {
+    padding:0;
+    margin:0;
+    outline: none;
+    border:none;
+    background: none;
+}
+.figure-reset {
+    margin: 0;
+}
+
+// Hide apper
+.hide-arrow {
+  -moz-appearance:textfield;
+&::-webkit-inner-spin-button, 
+&::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+}
